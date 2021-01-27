@@ -20,7 +20,7 @@ Algorithum for delete at a postion.
 	1) Create a method named Delete at pos 
 	2) From main method send a parameter(no) to Delete at pos.
 	3) At this method,  create a while loop with I = 0 initilaizing 
-	4) While( I > pos)
+	4) While( I < pos)
 	5) {
 	6) Prev  = count;
 	7) Count = count.next;
