@@ -39,6 +39,7 @@ else {
 }
 
 void AddnodeatBegin(int data){
+
     Node newNode = new Node(data);
     if (head == null){
      System.out.println("The linked list is empty");
@@ -117,7 +118,8 @@ prev.next = tail.next;
 
 }
 
-void AddnewnodeAtpos(int eleemnt, int pso){
+void AddnewnodeAtpos(int eleemnt, int pso)
+{
 
   Node newNode = new Node(eleemnt);
   tail=head;
