@@ -39,11 +39,16 @@ else {
 }
 
 public void deleteNode(){
-    trav = head;
-  head = trav.next;
 
-  System.out.println("The deleted node is "+trav.data );
-    trav = null;
+
+
+        tail = head;
+        head = tail.next;
+
+        System.out.println("The deleted node is "+tail.data );
+
+
+
 
 
 
@@ -51,16 +56,16 @@ public void deleteNode(){
 }
 
 public void DeleteatEnd(){
-trav = head;
+tail = head;
 
-while(trav!= null)
+while(tail!= null)
 {
 
- if(trav.next!= null)
+ if(tail.next!= null)
 
  {
- prev = trav;
- trav = trav.next;
+ prev = tail;
+ tail = tail.next;
 
 
  }
@@ -68,9 +73,9 @@ while(trav!= null)
    else
 {
 
-System.out.println("The deleted Node is "+trav.data);
+System.out.println("The deleted Node is "+tail.data);
 prev.next =null;
-trav = null;
+tail = null;
 
  }
 
@@ -83,6 +88,21 @@ trav = null;
 
 
 }
+int i =1;
+public void DeleteAtpos(int number){
+tail=head;
+
+while(i< number){
+prev =  tail;
+tail = tail.next;
+        i++;
+ }
+    System.out.println("The deleted Node is "+tail.data);
+prev.next = tail.next;
+
+}
+
+
 
 public void display(){
   Node current = head;
@@ -108,12 +128,16 @@ public void display(){
 
     Single sList = new Single();
 
-    sList.addNode(1);
-    sList.addNode(2);
-    sList.addNode(3);
-    sList.addNode(4);
- sList.DeleteatEnd();
+  sList.addNode(1);
+  sList.addNode(2);
+  sList.addNode(3);
+  sList.addNode(4);
+
+ sList.DeleteAtpos(2);
+
  sList.display();
+
+
 
     }
 
