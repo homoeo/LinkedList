@@ -38,6 +38,21 @@ else {
 }
 }
 
+void AddnodeatBegin(int data){
+    Node newNode = new Node(data);
+    if (head == null){
+     System.out.println("The linked list is empty");
+
+    }
+    else {
+     newNode.next = head;
+     head = newNode;
+
+    }
+}
+
+
+
 public void deleteNode(){
 
 
@@ -102,6 +117,26 @@ prev.next = tail.next;
 
 }
 
+void AddnewnodeAtpos(int eleemnt, int pso){
+
+  Node newNode = new Node(eleemnt);
+  tail=head;
+
+  while(i< pso){
+ prev =  tail;
+ tail = tail.next;
+ i++;
+
+   }
+
+    prev.next = newNode;
+  newNode.next = tail;
+
+
+}
+
+
+
 
 
 public void display(){
@@ -133,13 +168,14 @@ public void display(){
   sList.addNode(3);
   sList.addNode(4);
 
- sList.DeleteAtpos(2);
+ sList.AddnewnodeAtpos(6,2);
+
 
  sList.display();
 
 
 
-    }
+ }
 
 
 }
