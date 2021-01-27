@@ -1,5 +1,7 @@
 # LinkedList
-Linked List
+
+Algorithum for delete at end
+
 1) Add a method named deleteatEnd ()
 2) Create a new variable named prev(Type: Node)  and assign it as null.
 3) Inside the method assign head value to trav variable.
