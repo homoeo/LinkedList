@@ -14,6 +14,10 @@ public Node head = null;
 
 public Node tail = null;
 
+public Node prev = null;
+
+
+
   public  Node trav = null;
 
 public void addNode(int data){
@@ -40,6 +44,40 @@ public void deleteNode(){
 
   System.out.println("The deleted node is "+trav.data );
     trav = null;
+
+
+
+
+}
+
+public void DeleteatEnd(){
+trav = head;
+
+while(trav!= null)
+{
+
+ if(trav.next!= null)
+
+ {
+ prev = trav;
+ trav = trav.next;
+
+
+ }
+
+   else
+{
+
+System.out.println("The deleted Node is "+trav.data);
+prev.next =null;
+trav = null;
+
+ }
+
+}
+
+
+
 
 
 
@@ -74,11 +112,8 @@ public void display(){
     sList.addNode(2);
     sList.addNode(3);
     sList.addNode(4);
+ sList.DeleteatEnd();
  sList.display();
- sList.deleteNode();
-        sList.deleteNode();
-        sList.deleteNode();
-        sList.display();
 
     }
 
