@@ -6,7 +6,8 @@ public Node tail =null;
  public   Node ail = null;
 
 
-class Node{
+class Node
+{
 
     Node prev;
     int data;
@@ -51,14 +52,43 @@ void Addatbegin(int parameter)
 
 }
 
-void Addatpos(int parameter){
+  public  Node prev = null;
+    int i=1;
+void Addatpos(int parameter, int pso)
+
+{
+
+
+    Node count = head;
 
     Node node = new Node(parameter);
+
     if(head == null)
+
     {
+
         head= node;
-        tail = node;
+        count = node;
+
     }
+
+
+
+
+    while(i< pso){
+
+        prev =  count;
+        count = count.next;
+        i++;
+
+    }
+node.next = count;
+    count.prev = node;
+    prev.next = node;
+      node.prev = prev;
+
+
+
 
 
 
@@ -88,21 +118,89 @@ void Addatend(int parameter){
 
 }
 
-void Deleteatbegin(){
+public Node delete = null;
+void Deleteatbegin()
+
+{
+
+if(head == null){
+    System.out.println(" As No new eleemnts are there to be deleeted ");
+}
+    else {
+
+    delete = head;
+    head = delete.next;
+
+    System.out.println("The deleted node is "+delete.data );
+
+
 
 }
 
-void Deleteatpos(){
+
+
+}
+
+void Deleteatpos(int number)
+
+{
+
+    int j =1;
+
+    delete=head;
+
+    while(j<=number)
+    {
+        if(j< number){
+
+            prev =  delete;
+        }
+        else {
+            System.out.println("The deleted Node is "+delete.data);
+        }
+
+
+        delete = delete.next;
+        j++;
+
+    }
+
+
+    prev.next = delete;
+    delete.prev = prev;
+
+
+
+
+
 
 }
 
 
 
-void Deleteatend(){
+void Deleteatend() {
+
+
+    delete = head;
+
+    while (delete != null) {
+
+        if (delete.next != null) {
+            prev = delete;
+            delete = delete.next;
+
+
+        } else {
+
+            System.out.println("The deleted Node is " +delete.data);
+            prev.next = null;
+            delete = null;
+
+        }
+
+    }
 
 }
-
-
 
 
 
@@ -139,6 +237,7 @@ while(current!=null)
 
 
     public static void main(String[] args) {
+
         Double doubl = new Double();
 
 doubl.Addatend(1);
@@ -146,11 +245,12 @@ doubl.Addatend(1);
         doubl.Addatend(3);
         doubl.Addatend(4);
 System.out.println();
-        doubl.Addatbegin(8);
-        doubl.Addatbegin(9);
-        doubl.Addatbegin(10);
-        doubl.Addatend(11);
+
+
+        doubl.Deleteatpos(2);
+
         doubl.display();
+
 
     }
 
