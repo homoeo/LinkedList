@@ -40,13 +40,31 @@ tail = tail.next;
 Close the method and return nothing (void).
 
 Algorithum for Add at begin()
+
 Head = tail;
+
 	1) Create a new node 
-	2) Check if head is null. 
+	
+	2) Check if head is null.
+	
 	if(head==null)
+	
 	{
+	
 	head=node;
+	
 	tail=node;
+	
 	}
 	
-	3) If not  
+	3) If not 
+	
+		4) tail.prev = node;
+	
+	5) node.next = tail;
+	
+	6) head = node;
+
+
+tail = tail.prev; 
+
