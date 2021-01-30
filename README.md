@@ -1,38 +1,44 @@
-# LinkedList
+ Algorithum for doubly linked list class
+	1) Create a class named double and inside the class create another class named Node.
+	2) Inside Node class, initialize 3 variables named data(Int ) and prev, next(Type : Node).
+	3) Create Node class constructor with parameter. Inside the constructor, assign parameter value to data variable.
+	4) Create a variable named head and initlialize it to null.
+	5) The operations of dll are add(begin, pos, end), delete(begin, pos, end).
+	6) Create these methods.
 
-Algorithum for delete at end
+Algorithum for Add at end()
 
-1) Add a method named deleteatEnd ()
-2) Create a new variable named prev(Type: Node)  and assign it as null.
-3) Inside the method assign head value to trav variable.
-4) Create a while loop with condition trav!=null
+	1) Initialize the node class object
+	2) Node node = new Node(parameter);
+	3)  check if head equal to null if satisfied then
+	4) Assign the new node to head
+	5) // if(head == null)
+	6)
+	7) {
+	8)
+	9) Head = node;
+	10)
+	11) }
+	12) If condition is false then,
+	13) Else{
 
-1) Inside the while loop 
-Check the condition if trav.next !=null Assign trav value to prev value. -> prev = trav; -> trav = trav.next; Else Prev.next = null; Trav = null;
+ tail.next    =  node;
 
-Close the loop End of method///
+ node.prev  =  tail;
 
+tail = tail.next;
 
+}
+Close the method and return nothing (void).
 
-
-Algorithum for delete at a postion.
-
-	1) Create a method named Delete at pos 
-	2) From main method send a parameter(no) to Delete at pos.
-	3) At this method,  create a while loop with I = 0 initilaizing 
-	4) While( I < pos)
-	5) {
-	6) Prev  = count;
-	7) Count = count.next;
-	8) I ++;
-	9) }
-	10) Prev.next = tail.next;
-
-Algorithum delete at beginning 
-
-
-1) Firstly create a new variable trav ( type: Node class )
-2) Create a new method named deleteNode 
-3) Inside the method assign the head node to trav variable
-4) Assign head.next (ref) to head 
-5) Print the output and 
+Algorithum for Add at begin()
+Head = tail;
+	1) Create a new node 
+	2) Check if head is null. 
+	if(head==null)
+	{
+	head=node;
+	tail=node;
+	}
+	
+	3) If not  
