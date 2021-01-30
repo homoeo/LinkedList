@@ -41,6 +41,7 @@ void Addatbegin(int parameter)
 
     else
 {
+
    tail.prev = node;
    node.next = tail;
    head = node;
