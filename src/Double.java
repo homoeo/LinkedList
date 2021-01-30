@@ -3,7 +3,7 @@ public class Double {
 
 public  Node head = null;
 public Node tail =null;
-
+ public   Node ail = null;
 
 
 class Node{
@@ -26,11 +26,40 @@ Node(int datya)
 
 }
 
-void Addatbegin(int parameter){
+void Addatbegin(int parameter)
+
+{
+
+    tail = head;
+    Node node = new Node(parameter);
+    if(head == null)
+    {
+        head= node;
+        tail = node;
+    }
+
+
+    else
+{
+   tail.prev = node;
+   node.next = tail;
+   head = node;
+  tail = tail.prev;
+}
+
 
 }
 
 void Addatpos(int parameter){
+
+    Node node = new Node(parameter);
+    if(head == null)
+    {
+        head= node;
+        tail = node;
+    }
+
+
 
 }
 
@@ -40,14 +69,14 @@ void Addatend(int parameter){
     if(head == null)
     {
      head= node;
-     tail = node;
+     ail = node;
     }
     else {
-        tail.next    =  node;
+        ail.next    =  node;
 
-        node.prev  =  tail;
+        node.prev  =  ail;
 
-        tail = tail.next;
+        ail = ail.next;
 
 
 
@@ -111,12 +140,15 @@ while(current!=null)
     public static void main(String[] args) {
         Double doubl = new Double();
 
-        doubl.Addatend(1);
+doubl.Addatend(1);
         doubl.Addatend(2);
         doubl.Addatend(3);
         doubl.Addatend(4);
-        doubl.Addatend(5);
-
+System.out.println();
+        doubl.Addatbegin(8);
+        doubl.Addatbegin(9);
+        doubl.Addatbegin(10);
+        doubl.Addatend(11);
         doubl.display();
 
     }
