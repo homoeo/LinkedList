@@ -45,11 +45,14 @@ void AddnodeatBegin(int data){
      System.out.println("The linked list is empty");
 
     }
+
     else {
+
      newNode.next = head;
      head = newNode;
 
     }
+
 }
 
 
@@ -105,7 +108,8 @@ tail = null;
 
 }
 int i =1;
-public void DeleteAtpos(int number){
+public void DeleteAtpos(int number)
+{
 tail=head;
 
 while(i< number){
