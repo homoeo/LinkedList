@@ -128,9 +128,17 @@ public class Double {
 
         delete = head;
 
-   if(number<=1){
+
+
+   if(number<=1 && delete.next==null){
             head = null;
         }
+
+   else if(number<=1)
+   {
+       head = delete.next;
+   }
+
         while (j <= number) {
 
             if (j <=1) {
