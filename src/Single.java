@@ -1,5 +1,3 @@
-import java.util.Scanner;
-
 public class Single {
 
 class Node{
@@ -37,20 +35,14 @@ else {
 
 
 
-
 }
-
 }
 
 void AddnodeatBegin(int data){
 
     Node newNode = new Node(data);
-    if (head == null)
-
-    {
-
-        head = newNode;
-        tail = newNode;
+    if (head == null){
+     System.out.println("The linked list is empty");
 
     }
 
@@ -67,11 +59,12 @@ void AddnodeatBegin(int data){
 
 public void deleteNode(){
 
-    System.out.println("The deleted node is "+head.data );
 
 
-        head = head.next;
+        tail = head;
+        head = tail.next;
 
+        System.out.println("The deleted node is "+tail.data );
 
 
 
@@ -81,87 +74,74 @@ public void deleteNode(){
 
 }
 
-public void DeleteatEnd() {
-    tail = head;
-    if (head == null) {
+public void DeleteatEnd(){
+tail = head;
 
-        System.out.println("No elements to be deleted ");
+while(tail!= null)
+{
 
-    } else if (head.next == null) {
-        System.out.print("The deleted element " + head.data);
-        head = null;
-    } else {
-        while (tail != null) {
+ if(tail.next!= null)
 
-
-            if (tail.next != null) {
-
-                prev = tail;
-                tail = tail.next;
+ {
+ prev = tail;
+ tail = tail.next;
 
 
-            } else {
+ }
 
-                System.out.println("The deleted Node is " + tail.data);
-                prev.next = null;
-                break;
+   else
+{
 
-            }
+System.out.println("The deleted Node is "+tail.data);
+prev.next =null;
+tail = null;
 
-        }
+ }
 
-
-    }
 }
 
+
+
+
+
+
+
+}
+int i =1;
 public void DeleteAtpos(int number)
 {
-    int j= 1;
-    tail = head;
-    if(head == null){
-     System.out.println("No elements to be deleted ");
+tail=head;
 
-    }
-    else if (number <= 1 && tail.next == null) {
-        head = null;
-    } else if (number <= 1) {
-        head = tail.next;
-    } else {
-        while (j < number) {
-            prev = tail;
-            tail = tail.next;
-            j++;
-        }
-        System.out.println("The deleted Node is " + tail.data);
-        prev.next = tail.next;
-
-    }
-}
-void AddnewnodeAtpos(int eleemnt, int pso) {
-    int i =0;
-    tail = head;
-    Node newNode = new Node(eleemnt);
-    if (head == null) {
-        AddnodeatBegin(eleemnt);
-        tail = head;
-    } else if (pso <= 1) {
-
-        AddnodeatBegin(eleemnt);
-    } else {
-        while (i+1 < pso) {
-            prev = tail;
-            tail = tail.next;
-            i++;
-
-        }
-
-        prev.next = newNode;
-        newNode.next = tail;
-display();
-
-    }
+while(i< number){
+prev =  tail;
+tail = tail.next;
+        i++;
+ }
+    System.out.println("The deleted Node is "+tail.data);
+prev.next = tail.next;
 
 }
+
+void AddnewnodeAtpos(int eleemnt, int pso)
+{
+
+  Node newNode = new Node(eleemnt);
+  tail=head;
+
+  while(i< pso){
+ prev =  tail;
+ tail = tail.next;
+ i++;
+
+   }
+
+    prev.next = newNode;
+  newNode.next = tail;
+
+
+}
+
+
 
 
 
@@ -176,11 +156,10 @@ public void display(){
     System.out.println("The list of linked List");
   while(current!= null)
   {
-   System.out.print(current.data +" ,");
+   System.out.println(current.data +" ");
    current = current.next;
 
   }
-
  System.out.println();
 
 
@@ -188,66 +167,21 @@ public void display(){
 
     public static void main(String[] args) {
 
-        int value;
-        int posi;
-        Scanner sc = new Scanner(System.in);
-   Single sList = new Single();
+    Single sList = new Single();
 
-        do {
+  sList.addNode(1);
+  sList.addNode(2);
+  sList.addNode(3);
+  sList.addNode(4);
 
-            System.out.println();
-            System.out.println("1) add at begin \n 2) add at end \n 3) add at pos\n 4) del at begin \n 5) del at end \n 6) del at pos \n 7) Display");
-
-            int opu = sc.nextInt();
-            switch (opu) {
-                case 1 -> {
-                    System.out.println("Enter the value to be added");
-                    value = sc.nextInt();
-                    sList.AddnodeatBegin(value);
-                    System.out.println();
-                }
-                case 2 -> {
-                    System.out.println("Enter the value to be added");
-                    value = sc.nextInt();
-                    sList.addNode(value);
-                    System.out.println();
-                }
-                case 3 -> {
-                    System.out.println("Enter the value to be added");
-                    value = sc.nextInt();
-                    System.out.println("enter the position to be added\n");
-                    posi = sc.nextInt();
-                    sList.AddnewnodeAtpos(value,posi);
-                    System.out.println();
-                }
-                case 4 -> {
-                    sList.deleteNode();
-                    System.out.println();
-                }
-                case 5 -> {
-                    sList.DeleteatEnd();
-                    System.out.println();
-                }
-                case 6 -> {
-                    System.out.println("enter the position to be deleted\n");
-                    posi = sc.nextInt();
-                    sList.DeleteAtpos(posi);
-                    System.out.println();
-                }
-                case 7 -> {
-                    System.out.println("The elements present are\n");
-                    sList.display();
-                    System.out.println();
-                }
-            }
+ sList.AddnewnodeAtpos(6,2);
 
 
-        }
-        while (true);
+ sList.display();
 
-        // complete
 
-    }
+
+ }
 
 
 }
