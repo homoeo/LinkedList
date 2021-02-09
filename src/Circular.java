@@ -20,8 +20,9 @@ public class Circular {
     public Node prev = null;
 
 
-
+public  int counter = 0;
     public  Node trav = null;
+    public Node rav = null;
 
     public void addNode(int data)
 
@@ -33,6 +34,7 @@ public class Circular {
     {
             head = newNode;
             tail = newNode;
+            prev = tail;
             newNode.next = head;
      }
 
@@ -41,14 +43,22 @@ public class Circular {
 
 
   tail.next = newNode;
+
+  prev = tail;
+
   tail= tail.next;
-  tail.next = newNode;
-      }
+
+  tail.next = head;
+        counter++;
+
+  }
+
 
    }
 
-    void AddnodeatBegin(int data)
-    {
+  void AddnodeatBegin(int data)
+
+ {
 
         Node newNode = new Node(data);
         if (head == null)
@@ -57,115 +67,140 @@ public class Circular {
 
             head = newNode;
             tail = newNode;
+            prev = newNode;
+             newNode.next = head;
+            counter++;
 
         }
 
-        else {
+        else
+       {
 
-            newNode.next = head;
-            head = newNode;
+           newNode.next = head;
+           head = newNode;
+           tail.next = head;
+           counter++;
 
-        }
+      }
+
+
 
     }
 
 
 
-    public void deleteNode()
- {
+    public void deleteNode() {
+        if (counter == 1) {
+            head = null;
+        }
 
-        System.out.println("The deleted node is "+head.data );
-        head = head.next;
-
- }
-
-    public void DeleteatEnd() {
-        tail = head;
-        if (head == null) {
-
+      else   if(head == null){
             System.out.println("No elements to be deleted ");
 
-        } else if (head.next == null) {
-            System.out.print("The deleted element " + head.data);
-            head = null;
-        } else {
-            while (tail != null)
-            {
-
-
-                if (tail.next != null) {
-
-                    prev = tail;
-                    tail = tail.next;
-
-
-                } else {
-
-                    System.out.println("The deleted Node is " + tail.data);
-                    prev.next = null;
-                    break;
-
-                }
-
-            }
+        }
+        else {
+            System.out.println("The deleted node is " + head.data);
+            head = head.next;
+            tail.next = head;
 
 
         }
+        counter--;
+    }
+
+    public void DeleteatEnd() {
+        if (counter == 1) {
+            head = null;
+        }
+       else if(head == null){
+            System.out.println("No elements to be deleted ");
+
+        }
+        else {
+            tail = prev;
+            tail.next = head;
+
+        }
+        counter--;
 
     }
 
     public void DeleteAtpos(int number)
+
     {
+
         int j= 1;
-        tail = head;
+        trav = head;
         if(head == null){
-            System.out.println("No elements to be deleted ");
+
+        System.out.println("No elements to be deleted ");
 
         }
-        else if (number <= 1 && tail.next == null) {
+
+        else if (number <= 1 && trav.next == head) {
             head = null;
-        } else if (number <= 1) {
-            head = tail.next;
-        } else {
+        }
+
+        else if (number <= 1) {
+
+        head = trav.next;
+
+        }
+
+        else {
             while (j < number) {
-                prev = tail;
-                tail = tail.next;
+                rav = trav;
+                trav = trav.next;
                 j++;
             }
+
             System.out.println("The deleted Node is " + tail.data);
-            prev.next = tail.next;
+            rav.next = trav.next;
 
         }
+        counter--;
+
     }
     void AddnewnodeAtpos(int eleemnt, int pso) {
+
         int i =0;
-        tail = head;
+        trav = head;
         Node newNode = new Node(eleemnt);
         if (head == null) {
             AddnodeatBegin(eleemnt);
-            tail = head;
-        } else if (pso <= 1) {
+
+            trav = head;
+
+        }
+        else if (pso <= 1) {
 
             AddnodeatBegin(eleemnt);
-        } else {
-            while (i+1 < pso) {
-                prev = tail;
-                tail = tail.next;
+
+        }
+        else {
+
+            while (i+1 < pso)
+            {
+                rav = trav;
+                trav = trav.next;
                 i++;
 
             }
 
-            prev.next = newNode;
-            newNode.next = tail;
-            display();
+            rav.next = newNode;
+            newNode.next = trav;
+
+            counter++;
 
         }
 
+        display();
     }
 
 
 
     public void display(){
+        int koop= 0;
         Node current = head;
         if(head== null)
         {
@@ -174,11 +209,18 @@ public class Circular {
             return;
         }
         System.out.println("The list of linked List");
-        while(current!= null)
-        {
-            System.out.print(current.data +" ,");
-            current = current.next;
+        while(current!= null) {
 
+            if (koop >= counter) {
+               // System.out.println(counter);
+                break;
+            }
+            else {
+                System.out.print(current.data + " ,");
+                current = current.next;
+
+            }
+            koop++;
         }
 
         System.out.println();
