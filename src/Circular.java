@@ -200,6 +200,7 @@ public  int counter = 0;
 
 
     public void display(){
+
         int koop= 0;
         Node current = head;
         if(head== null)

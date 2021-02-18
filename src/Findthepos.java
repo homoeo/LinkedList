@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class Single {
+public class Findthepos {
 
     class Node{
         int data;
@@ -41,7 +41,7 @@ public class Single {
 
 
         }
-pos++;
+        pos++;
     }
 
     void AddnodeatBegin(int data)
@@ -63,7 +63,7 @@ pos++;
             head = newNode;
 
         }
-pos++;
+        pos++;
     }
 
 
@@ -78,7 +78,7 @@ pos++;
 
 
 
-pos--;
+        pos--;
 
 
 
@@ -168,7 +168,7 @@ pos--;
             display();
 
         }
-pos++;
+        pos++;
     }
 
 
@@ -219,9 +219,12 @@ pos++;
         int value;
         int posi;
         Scanner sc = new Scanner(System.in);
-        Single sList = new Single();
 
-        do {
+        Findthepos sList = new Findthepos();
+
+        do
+        {
+
 
             System.out.println();
             System.out.println("1) add at begin \n 2) add at end \n 3) add at pos\n 4) del at begin \n 5) del at end \n 6) del at pos \n 7) Display \n\n 8)Find Atpos");

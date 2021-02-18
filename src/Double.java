@@ -190,10 +190,12 @@ else{
 
             System.out.println("No elements to be deleted ");
 
-        } else if (head.next == null) {
+        }
+        else if (head.next == null) {
             System.out.print("The deleted element " + head.data);
             head = null;
-        } else {
+        }
+        else {
             ail = ail.prev;
             ail.next = null;
 
